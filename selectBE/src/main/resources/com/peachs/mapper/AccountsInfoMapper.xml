@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.peachs.mapper.AccountsInfoMapper">
+		<!-- 전체 게시물을 가져오는 SQL -->
+	<select id = "getLists" resultType="com.peachs.entity.AccountsInfo">
+		select * from accounts_info
+	</select>
+	
+	<select id = "login" resultType="com.peachs.entity.AccountsInfo" parameterType="com.peachs.entity.AccountsInfo">
+		select * from accounts_info where user_id = #{user_id} and user_pw = #{user_pw}
+	</select>
+	
+	<insert id = "register" parameterType="com.peachs.entity.AccountsInfo">
+			insert into accounts_info (user_id,user_pw,user_name,user_com,user_job)
+		values(#{user_id},#{user_pw},#{user_name},#{user_com},#{user_job})
+	</insert>
+</mapper>
